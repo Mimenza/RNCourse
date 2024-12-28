@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npx expo start --localhost",
-    "android": "npx expo start --localhost --android",
-    "ios": "npx expo start --localhost --ios",
-    "web": "npx expo start --localhost --web"
+    "start": "expo start --tunnel",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
   "dependencies": {
     "expo": "~52.0.20",
