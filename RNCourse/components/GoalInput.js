@@ -3,30 +3,31 @@ import { View, TextInput, Button, StyleSheet } from "react-native";
 import { useState } from "react";
 
 function GoalInput(props) {
+  // Estado para almacenar el texto del objetivo ingresado
+  const [enteredGoalText, setEnteredGoalText] = useState("");
+
+  // Función para manejar el cambio de texto en el input
   function goalInputHandler(enteredText) {
     setEnteredGoalText(enteredText);
   }
 
-  function clearGoalHandler() {
-    props.onClearGoal();
-  }
-
+  // Función para manejar el evento de agregar objetivo
   function addGoalHandler() {
     props.onAddGoal(enteredGoalText);
-    setEnteredGoalText('');
+    setEnteredGoalText("");
   }
 
-  const [enteredGoalText, setEnteredGoalText] = useState("");
   return (
     <View style={styles.inputContainer}>
+      {/* Input para ingresar el texto del objetivo */}
       <TextInput
         style={styles.textInput}
         placeholder="Your course goal!"
         onChangeText={goalInputHandler}
         value={enteredGoalText}
       />
+      {/* Botón para agregar el objetivo */}
       <Button title="Add Goal" onPress={addGoalHandler} />
-      <Button title="Clear Goal" onPress={clearGoalHandler} />
     </View>
   );
 }
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
   textInput: {
     borderWidth: 1,
     borderColor: "#cccccc",
-    width: "50%",
+    width: "70%",
     marginRight: 8,
     padding: 8,
   },
