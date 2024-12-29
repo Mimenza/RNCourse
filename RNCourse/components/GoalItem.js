@@ -5,6 +5,7 @@ function GoalItem(props) {
   return (
     <Pressable
       onPress={props.onDeleteGoal.bind(this, props.id)}
+      // Estilo para cuando el ítem es presionado
       style={({ pressed }) => pressed && styles.pressedItem}
     >
       <View style={styles.goalItem}>
@@ -22,8 +23,9 @@ const styles = StyleSheet.create({
   goalItem: {
     margin: 8,
     borderRadius: 6,
-    backgroundColor: "#5e0acc",
+    backgroundColor: "#373b40",
   },
+  // Estilo para cuando el ítem es presionado
   pressedItem: {
     opacity: 0.8,
     transform: [{ scale: 0.99 }],
