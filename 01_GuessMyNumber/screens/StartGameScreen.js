@@ -1,8 +1,9 @@
 import { TextInput, View, StyleSheet, Alert } from "react-native";
 import { useState } from "react";
-import PrimaryButton from "../components/PrimaryButton";
+import PrimaryButton from "../components/ui/PrimaryButton";
+import Colors from "../constants/colors";
 
-function StartGameScreen({onPickNumber}) {
+function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   function numberInputHandler(input) {
@@ -12,17 +13,15 @@ function StartGameScreen({onPickNumber}) {
   function confirmInputHandler() {
     const chosenNumber = parseInt(enteredNumber);
     if (isNaN(chosenNumber) || chosenNumber <= 0 || chosenNumber > 99) {
-      Alert.alert(
-        "Invalid Input",
-        "Number has to be between 1 and 99",
-        [{
+      Alert.alert("Invalid Input", "Number has to be between 1 and 99", [
+        {
           text: "Ok",
           style: "destructive",
           onPress: () => {
             setEnteredNumber("");
           },
-        },]
-      );
+        },
+      ]);
       return;
     }
     onPickNumber(chosenNumber);
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginHorizontal: 24,
     padding: 16,
-    backgroundColor: "rgb(75, 3, 45)",
+    backgroundColor: Colors.primary600,
     borderRadius: 8,
     elevation: 4,
   },
@@ -72,9 +71,9 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
     fontSize: 32,
-    borderBottomColor: "rgb(221, 181, 47)",
+    borderBottomColor: Colors.secondary500,
     borderBottomWidth: 2,
-    color: "rgb(221, 181, 47)",
+    color: Colors.secondary500,
     marginVertical: 8,
     fontWeight: "bold",
   },
