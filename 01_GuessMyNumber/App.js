@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, ImageBackground, SafeAreaView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
+import * as Font from "expo-font";
+import { Ionicons } from "@expo/vector-icons";
 
 import Colors from "./constants/colors";
 import StartGameScreen from "./screens/StartGameScreen";
@@ -18,6 +20,15 @@ export default function App() {
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
     "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
   });
+
+  useEffect(() => {
+    async function loadFonts() {
+      await Font.loadAsync({
+        ...Ionicons.font,
+      });
+    }
+    loadFonts();
+  }, []);
 
   // if (!fontsLoaded) {
   //   console.log("tamo cargando cosas");
