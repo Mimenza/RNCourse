@@ -18,6 +18,6 @@ const styles = {
     borderWidth: 2,
     borderColor: Colors.secondary500,
     borderRadius: 10,
-    padding: 12,
+    padding: 15,
   },
 };
